@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Standard library imports
-
+from sqlalchemy.exc import IntegrityError
 # Remote library imports
 from flask import request, session, make_response, jsonify
 from flask_restful import Resource
