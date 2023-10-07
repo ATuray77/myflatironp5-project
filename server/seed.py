@@ -18,8 +18,8 @@ if __name__ == '__main__':
     with app.app_context():
         print("Starting seed...")
         #Seed code goes here!
-        #Owner.query.delete()
-        #Car.query.delete()
+        Owner.query.delete()
+        Car.query.delete()
 
         print("Creating Owner...")
         # owner_list = []
@@ -50,18 +50,18 @@ if __name__ == '__main__':
 
 
         # print("Creating Car...")
-        # makes_models = [
-        #     "Toyota_Camry", 
-        #     "Ford_Mustang", 
-        #     "Cheverolet_Camaro", 
-        #     "Honda_Pilot", 
-        #     "Audi_A4", 
-        #     "Hyundai_Elantra", 
-        #     "Kia_Golf", 
-        #     "Lexus_ES", 
-        #     "BMW_X6", 
-        #     "Teals_Model 3"
-        #     ]
+        makes_models = [
+            "Toyota_Camry", 
+            "Ford_Mustang", 
+            "Cheverolet_Camaro", 
+            "Honda_Pilot", 
+            "Audi_A4", 
+            "Hyundai_Elantra", 
+            "Kia_Golf", 
+            "Lexus_ES", 
+            "BMW_X6", 
+            "Teals_Model 3"
+            ]
         # colors = ["white", "red", "green", "blue", "yellow", "purple", "brown", "pink", "grey", "black"]
         # # print(makes_models)
         # # print(colors)
@@ -104,7 +104,8 @@ if __name__ == '__main__':
         # generate 30 cars
         for _ in range(30):
             car = Car(
-                make_model=fake.company(),
+                #make_model=fake.company(),
+                make_model = random.choice(makes_models),
                 color=fake.safe_color_name(),
                 licence_plate=fake.license_plate(),
                 owner_id=random.choice(Owner.query.all()).id

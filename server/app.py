@@ -122,6 +122,49 @@ class Cars(Resource):
         )
         return response
 
+#---post
+    # def post(self):
+    #     form_json = request.get_json()
+    #     new_car = Car(
+    #         make_model=form_json["make_model"],
+    #         color=form_json["color"],
+    #         licence_plate=form_json["licence_plate"]
+           
+    #     )
+
+    #     db.session.add(new_car)
+    #     db.session.commit()
+
+    #     response_dict = new_car.to_dict()
+
+    #     response = make_response(
+    #         response_dict,
+    #         201,
+    #     )
+    #     return response
+    def post(self):
+        json = request.get_json()
+        if not session.get('user_id'):
+            return ({"error":"unauthorized"}, 401)
+        else:
+            try:
+                new_car = Car(
+                    make_model = json['make_model'],
+                    color = json['color'],
+                    licence_plate = json['licence_plate'],
+                    user_id = session['user_id'],
+                    )
+            
+                db.session.add(new_car)
+                db.session.commit()
+                return new_car.to_dict(), 201
+            except IntegrityError:
+                db.session.rollback()
+                return ({"error":"unprocessable entity"}, 422)
+#---End post
+
+
+
 class CarByID(Resource):
     def get(self, id):
         car = Car.query.filter_by(id=id).first()
