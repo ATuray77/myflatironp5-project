@@ -73,3 +73,16 @@ class Car(db.Model, SerializerMixin):
             + f"color={self.color}, " \
             + f"license_plate={self.license_plate}, " \
             + ">"
+    
+#---a user table for authentication and login logic
+class User(db.Model, SerializerMixin):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.Integer)
+    last_name = db.Column(db.Integer)
+    email = db.Column(db.String, unique = True, nullable = False)
+    username = db.Column(db.String, unique = True)
+    _password_hash = db.Column(db.String, nullable = False)
+
+#---and of a user table for authentication and login logic
