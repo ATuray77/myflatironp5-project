@@ -56,6 +56,18 @@ class Signup(Resource):
         session['user_id'] = user.id
 
         return user.to_dict(), 201
+    
+class CheckSession(Resource):
+
+    def get(self):
+
+        if session.get('user_id'):
+            
+            user = User.query.filter(User.id == session['user_id']).first()
+            
+            return user.to_dict(), 200
+
+        return {}, 204
 #---
 
 
