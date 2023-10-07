@@ -12,6 +12,8 @@ from sqlalchemy import MetaData
 from flask_bcrypt import Bcrypt
 # Instantiate app, set attributes
 app = Flask(__name__)
+app.secret_key = b'\xe0$\x003Q\x95\xf1\xf4\xa6_\xb7\xf2d\xa2cf'
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
