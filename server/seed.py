@@ -90,7 +90,7 @@ if __name__ == '__main__':
             owner = Owner(
                 first_name=fake.first_name(),
                 last_name=fake.last_name(),
-                username = f"{first_name}_{last_name}",
+                #username = f"{first_name}_{last_name}",
                 email=fake.email(),
                 phone=fake.phone_number(),
                 #_password_hash=fake.sha256()

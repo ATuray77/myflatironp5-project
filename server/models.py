@@ -33,14 +33,18 @@ class Owner(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
-    user_name = db.Column(db.String(50), unique=True)
+    username = db.Column(db.String(50), unique=True)
     email = db.Column(db.String(120), unique=True)
     phone = db.Column(db.String(20))
     _password_hash = db.Column(db.String(128))
     cars = db.relationship('Car', backref='owner')
 
+    @property
+    def username(self):
+        return f'{self.first_name}_{self.last_name}'
+    
     def __repr__(self):
-        return f"\n<User id={self.id} first_name={self.first_name} last_name={self.last_name}email={self.email} username={self.username} phone_number={self.phone}>"
+        return f"\n<User id={self.id} first_name={self.first_name} last_name={self.last_name}email={self.email} user_name = f'{self.first_name}_{self.last_name}' phone_number={self.phone}>"
 #-----
 
 # class Car(db.Model, SerializerMixin):
@@ -79,11 +83,15 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.Integer)
-    last_name = db.Column(db.Integer)
+    first_name = db.Column(db.String(50))
+    last_name = db.Column(db.String(50))
     email = db.Column(db.String, unique = True, nullable = False)
-    username = db.Column(db.String, unique = True)
+    username = db.Column(db.String(100), unique = True, nullable = False)
     _password_hash = db.Column(db.String, nullable = False)
+
+    @property
+    def username(self):
+        return f'{self.first_name}_{self.last_name}'
 
 #---and of a user table for authentication and login logic
 
@@ -103,4 +111,4 @@ class User(db.Model, SerializerMixin):
             self._password_hash, password.encode('utf-8'))
     
     def __repr__(self):
-        return f"\n<User id={self.id} first_name={self.first_name} last_name={self.last_name}email={self.email} username={self.username}>"
+        return f"\n<User id={self.id} first_name={self.first_name} last_name={self.last_name}email={self.email} user_name = f'{self.first_name}_{self.last_name}'>"
