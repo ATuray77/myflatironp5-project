@@ -24,6 +24,11 @@ function App() {
   }, []);
 
 
+  function handleOnFormSubmitted(addedSong) {
+    const updatedSongs = [...songs, addedSong];
+    setSongs(updatedSongs);
+  }
+
 
   useEffect(() => {
     fetch("/cars")
@@ -55,7 +60,7 @@ function App() {
           <CarsPage songs={songs} setSongs={setSongs} />
         </Route>
         <Route path="/form">
-          <SongForm onFormSubmitted={handleOnFormSubmitted} />
+          <CarForm onFormSubmitted={handleOnFormSubmitted} />
         </Route>
         <Route exact path="/">
           <UserHome songs={songs} setSongs={setSongs} id={songs.id} onDeleteSong={handleDeleteSong} />
