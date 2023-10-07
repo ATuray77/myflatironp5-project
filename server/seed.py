@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
         print("Creating Owner...")
         owner_list = []
-        for _ in range(10):
+        for n in range(10):
 
             first_name=fake.first_name()
             last_name=fake.last_name()
@@ -31,9 +31,17 @@ if __name__ == '__main__':
             phone = fake.phone_number()
 
 
-            owner = Owner(first_name=first_name, last_name=last_name, email = email, username = username, phone=phone, )
+            owner = Owner(
+                first_name=first_name, 
+                last_name=last_name, 
+                email = email, 
+                username = username, 
+                phone=phone, 
+            )
+            owner.password_hash = owner
+            
             owner_list.append(owner)
-        db.session.add(owner_list)
+        db.session.add_all(owner_list)
         db.session.commit()
         #owner_list.append(owner)
 
