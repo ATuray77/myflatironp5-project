@@ -122,6 +122,48 @@ class Cars(Resource):
         )
         return response
 
+class CarByID(Resource):
+    def get(self, id):
+        car = Car.query.filter_by(id=id).first()
+        if not car:
+            return {"error": "Production not found"}, 404
+        car_dict = car.to_dict()
+        response = make_response(car_dict, 200)
+        return response
+
+    def patch(self, id):
+        car = Car.query.filter_by(id=id).first()
+        if not car:
+            return {"error": "Production not found"}, 404
+
+        for attr in request.form:
+            setattr(car, attr, request.form[attr])
+
+        # production.ongoing = bool(request.form["ongoing"])
+        # production.budget = int(request.form["budget"])
+
+        db.session.add(car)
+        db.session.commit()
+
+        car_dict = car.to_dict()
+
+        response = make_response(car_dict, 200)
+        return response
+
+    def delete(self, id):
+        car = Car.query.filter_by(id=id).first()
+        if not car:
+            return {"error": "Production not found"}, 404
+        db.session.delete(car)
+        db.session.commit()
+
+        response = make_response("", 204)
+
+        return response
+
+
+api.add_resource(CarByID, "/cars/<int:id>")
+
 api.add_resource(Cars, "/cars")
 
 api.add_resource(ClearSession, '/clear', endpoint='clear')
