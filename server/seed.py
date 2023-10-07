@@ -12,6 +12,10 @@ from models import db, Car, Owner
 
 if __name__ == '__main__':
     fake = Faker()
+
+
     with app.app_context():
         print("Starting seed...")
         # Seed code goes here!
+        Owner.query.delete()
+        Car.query.delete()
