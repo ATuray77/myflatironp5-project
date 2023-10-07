@@ -18,7 +18,7 @@ function CarsList({ cars, setCars }) {
 
   const renderCars = Object.keys(cars).map((carID) => (
     <li key={carID}>
-      <Link to={`/cars/${carID}`}>{cars[carID].Title}</Link>
+      <Link to={`/cars/${carID}`}>{cars[carID].make_model}</Link>
     </li>
   ));
 
