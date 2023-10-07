@@ -11,37 +11,28 @@ class Owner(db.Model, SerializerMixin):
     __tablename__ = "owners"
     serialize_rules = ("-cars.owner",)
 
-    id = Column(Integer, primary_key = True)
-    first_name = Column(String, nullable= False)
-    last_name = Column(String, nullable= False)
-    username = Column(String, unique=True, nullable=False )
-    phone= Column(String, nullable = False)
-    email= Column(String, unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.Integer)
+    last_name = db.Column(db.Integer)
+    email = db.Column(db.String, unique = True, nullable = False)
+    username = db.Column(db.String, unique = True)
     _password_hash = db.Column(db.String, nullable = False)
 
     cars = relationship("Car", backref="owner") # relationship
 
 
-
-    def __repr__(self):
-        return f"\n<Owner" \
-            + f"id={self.id}, " \
-            + f"first_name={self.first_name}, " \
-            + f"last_name={self.last_name}, " \
-            + f"username={self.username}, " \
-            + f"phone={self.phone}, " \
-            + f"email={self.email}, " \
-            + ">"
+def __repr__(self):
+        return f"\n<User id={self.id} first_name={self.first_namename} last_name={self.last_name}email={self.email} username={self.username}>"
 
 
 class Car(db.Model, SerializerMixin):
     __tablename__ = "cars"
 
-    id = Column(Integer, primary_key = True)
-    make_model = Column(String, nullable = False)
-    color = Column(String, nullable = False)
-    license_plate = Column(String, nullable=False)
-    owner_id = Column(Integer, ForeignKey("owners.id"))
+    id = db.Column(db.Integer, primary_key = True)
+    make_model = db.Column(db.String, nullable = False)
+    color = db.Column(db.String, nullable = False)
+    license_plate = db.Column(db.String, nullable=False)
+    owner_id = db.Column(db.Integer, ForeignKey("owners.id"))
 
 
     def __repr__(self):
