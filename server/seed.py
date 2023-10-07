@@ -93,7 +93,7 @@ if __name__ == '__main__':
                 username = f"{first_name}_{last_name}",
                 email=fake.email(),
                 phone=fake.phone_number(),
-                _password_hash=fake.sha256()
+                #_password_hash=fake.sha256()
             )
             db.session.add(owner)
 
