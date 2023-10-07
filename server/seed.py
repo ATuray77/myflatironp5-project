@@ -26,11 +26,12 @@ if __name__ == '__main__':
 
             first_name=fake.first_name()
             last_name=fake.last_name()
+            email = fake.ascii_email()
             username = f"{first_name}_{last_name}"
             phone = fake.phone_number()
 
 
-            owner = Owner(first_name=first_name, last_name=last_name, username = username, phone=phone, email = fake.ascii_email())
+            owner = Owner(first_name=first_name, last_name=last_name, email = email, username = username, phone=phone, )
             owner_list.append(owner)
         db.session.add(owner_list)
         db.session.commit()

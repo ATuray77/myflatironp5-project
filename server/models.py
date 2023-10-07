@@ -16,13 +16,14 @@ class Owner(db.Model, SerializerMixin):
     last_name = db.Column(db.Integer)
     email = db.Column(db.String, unique = True, nullable = False)
     username = db.Column(db.String, unique = True)
+    phone = db.Column(db.Integer, unique = True)
     _password_hash = db.Column(db.String, nullable = False)
 
     cars = relationship("Car", backref="owner") # relationship
 
 
 def __repr__(self):
-        return f"\n<User id={self.id} first_name={self.first_namename} last_name={self.last_name}email={self.email} username={self.username}>"
+        return f"\n<User id={self.id} first_name={self.first_name} last_name={self.last_name}email={self.email} username={self.username} phone_number={self.phone}>"
 
 
 class Car(db.Model, SerializerMixin):
