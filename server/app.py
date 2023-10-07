@@ -68,6 +68,23 @@ class CheckSession(Resource):
             return user.to_dict(), 200
 
         return {}, 204
+    
+
+class Login(Resource):
+
+    def post(self):
+        
+        username = request.get_json()['username']
+        password = request.get_json()['password']
+
+        user = User.query.filter(User.username == username).first()
+
+        if user.authenticate(password):
+
+            session['user_id'] = user.id
+            return user.to_dict(), 200
+
+        return {'error': '401 Unauthorized'}, 401
 #---
 
 
