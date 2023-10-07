@@ -7,6 +7,7 @@ import Login from "./Login";
 import SignUp from "./Signup";
 import CarForm from './CarForm';
 import MyCars from './MyCars';
+import CarsPage from './CarsPage';
 
 
 function App() {
@@ -24,9 +25,15 @@ function App() {
   }, []);
 
 
-  function handleOnFormSubmitted(addedSong) {
-    const updatedSongs = [...songs, addedSong];
-    setSongs(updatedSongs);
+  function handleOnFormSubmitted(addedCar) {
+    const updatedCars = [...cars, addedCar];
+    setCars(updatedCars);
+  }
+
+   //handles delete
+   function handleDeleteCar(id) {
+    const updatedCars = cars.filter((car) => car.id !== id);
+    setCars(updatedCars);
   }
 
 
@@ -57,13 +64,13 @@ function App() {
       <Switch>
         <Route path="/cars">
           {/* <UserHome user={user}/> */}
-          <CarsPage songs={songs} setSongs={setSongs} />
+          <CarsPage cars={cars} setCars={setCars} />
         </Route>
         <Route path="/form">
           <CarForm onFormSubmitted={handleOnFormSubmitted} />
         </Route>
         <Route exact path="/">
-          <UserHome songs={songs} setSongs={setSongs} id={songs.id} onDeleteSong={handleDeleteSong} />
+          <MyCars cars={cars} setCars={setCars} id={cars.id} onDeleteCar={handleDeleteCar} />
         </Route>
       </Switch>
       ) : (
