@@ -97,7 +97,7 @@ class Logout(Resource):
 
 @app.route('/')
 def index():
-    return '<h1>Project Server</h1>'
+    return '<h1>WELCOME TO METRO PARKNG GARAGE</h1>'
 
 # @app.route('/cars', methods=['GET'])
 # def cars():
