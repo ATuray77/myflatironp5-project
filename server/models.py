@@ -86,3 +86,8 @@ class User(db.Model, SerializerMixin):
     _password_hash = db.Column(db.String, nullable = False)
 
 #---and of a user table for authentication and login logic
+
+
+    @hybrid_property
+    def password_hash(self):
+        raise AttributeError('Password hashes may not be viewed.')
