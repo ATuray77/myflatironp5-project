@@ -4,8 +4,10 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from config import db
 
 # Models go here!
-class Owner(Base):
+class Owner(db.Model, SerializerMixin):
     __tablename__ = "owners"
+    serialize_rules = ("-cars.owner",)
+
     id = Column(Integer, primary_key = True)
     first_name = Column(String, nullable= False)
     last_name = Column(String, nullable= False)
