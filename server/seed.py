@@ -87,10 +87,11 @@ if __name__ == '__main__':
 
         # generate 10 owners
         for _ in range(10):
+            
             owner = Owner(
                 first_name=fake.first_name(),
                 last_name=fake.last_name(),
-                #username = f"{first_name}_{last_name}",
+                username = fake.user_name(),
                 email=fake.email(),
                 phone=fake.phone_number(),
                 #_password_hash=fake.sha256()

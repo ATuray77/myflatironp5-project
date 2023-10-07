@@ -39,9 +39,9 @@ class Owner(db.Model, SerializerMixin):
     _password_hash = db.Column(db.String(128))
     cars = db.relationship('Car', backref='owner')
 
-    @property
-    def username(self):
-        return f'{self.first_name}_{self.last_name}'
+    # @property
+    # def username(self):
+    #     return f'{self.first_name}_{self.last_name}'
     
     def __repr__(self):
         return f"\n<User id={self.id} first_name={self.first_name} last_name={self.last_name}email={self.email} user_name = f'{self.first_name}_{self.last_name}' phone_number={self.phone}>"
@@ -89,9 +89,9 @@ class User(db.Model, SerializerMixin):
     username = db.Column(db.String(100), unique = True, nullable = False)
     _password_hash = db.Column(db.String, nullable = False)
 
-    @property
-    def username(self):
-        return f'{self.first_name}_{self.last_name}'
+    # @property
+    # def username(self):
+    #     return f'{self.first_name}_{self.last_name}'
 
 #---and of a user table for authentication and login logic
 
