@@ -13,6 +13,17 @@ from models import Owner, Car, User
 
 
 # Views go here!
+#---
+class ClearSession(Resource):
+
+    def delete(self):
+    
+        session['page_views'] = None
+        session['user_id'] = None
+
+        return {}, 204
+#---
+
 
 @app.route('/')
 def index():
