@@ -20,10 +20,19 @@ function App() {
   useEffect(() => {
     fetch("/cars")
       .then((r) => r.json())
-      .then((cars) => console.log(cars));
+      // .then((cars) => console.log(cars));
+      .then((cars) => setCars(cars));
   }, []);
 
-  return <h1>Check the console for a list of cars!</h1>;
+  if (!cars) return <h2>Loading...</h2>;
+
+   <h1>Check the console for a list of cars!</h1>;
+
+  return (
+    <>
+    </>
+
+  )
 }
 
 
