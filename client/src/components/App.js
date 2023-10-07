@@ -3,11 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css"
 import NavBar from './NavBar';
 import Home from "./Home";
-import UserHome from "./UserHome";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import SongsPage from './SongsPage';
-import SongForm from './SongForm';
+import CarForm from './CarFormForm';
+import MyCars from './MyCars';
 
 
 function App() {
