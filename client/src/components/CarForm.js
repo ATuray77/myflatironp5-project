@@ -24,25 +24,25 @@ function CarForm({ onFormSubmitted }) {
 
   return (
     <>
-    <h3>Please fill in this form to submit a song</h3>
+    <h3>Please fill in your car information</h3>
       <form onSubmit={onSubmit} className="form">
         <label>
-          Title
-          <input type="text" name="Title" />
+          Makd and Model
+          <input type="text" name="Make_model" />
         </label>
         <label>
-          Artist
-          <input type="text" name="Artist" />
+          Color
+          <input type="text" name="color" />
         </label>
         <label>
-          Style
-          <select name="Style">
+          License Plate
+          <select name="licence_plate">
             <option>praise</option>
             <option>Worship</option>
           </select>
         </label>
         <label>
-          Lyrics
+          Leave a comment
           <textarea name="Lyrics"></textarea>
         </label>
         <button type="submit">Add a song</button>
