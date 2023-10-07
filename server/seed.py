@@ -60,7 +60,12 @@ if __name__ == '__main__':
             "Kia_Golf", 
             "Lexus_ES", 
             "BMW_X6", 
-            "Teals_Model 3"
+            "Teals_Model 3",
+            "Mercedes_C",
+            "BMW_X5",
+            "Tesla_ModelC",
+            "Dodge_Charger"
+            "Dodge_Challenger"
             ]
         # colors = ["white", "red", "green", "blue", "yellow", "purple", "brown", "pink", "grey", "black"]
         # # print(makes_models)
