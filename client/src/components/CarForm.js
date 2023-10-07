@@ -19,7 +19,7 @@ function CarForm({ onFormSubmitted }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((addedSong) => onFormSubmitted(addedSong));
+      .then((addedCar) => onFormSubmitted(addedCar));
   };
 
   return (
@@ -36,16 +36,13 @@ function CarForm({ onFormSubmitted }) {
         </label>
         <label>
           License Plate
-          <select name="licence_plate">
-            <option>praise</option>
-            <option>Worship</option>
-          </select>
+          <input type="text" name="licence_plate" />
         </label>
-        <label>
+        {/* <label>
           Leave a comment
           <textarea name="Lyrics"></textarea>
-        </label>
-        <button type="submit">Add a song</button>
+        </label> */}
+        <button type="submit">Add a car</button>
       </form>
     </>
   );
