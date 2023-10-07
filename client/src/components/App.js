@@ -3,10 +3,17 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [songs, setSongs] = useState([]);
+  const [cars, setCars] = useState([]);
 
 
-
+  useEffect(() => {
+    // auto-login
+    fetch("/check_session").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
 
 
