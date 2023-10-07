@@ -1,7 +1,8 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy.ext.hybrid import hybrid_property
 
-from config import db
+from config import db, bcrypt
 
 # Models go here!
 class Owner(db.Model, SerializerMixin):
@@ -18,9 +19,21 @@ class Owner(db.Model, SerializerMixin):
     cars = relationship("Car", backref="owner") # relationship
 
 
+
+    def __repr__(self):
+        return f"\n<Owner" \
+            + f"id={self.id}, " \
+            + f"first_name={self.first_name}, " \
+            + f"last_name={self.last_name}, " \
+            + f"username={self.username}, " \
+            + f"phone={self.phone}, " \
+            + f"email={self.email}, " \
+            + ">"
+
+
 class Car(db.Model, SerializerMixin):
     __tablename__ = "cars"
-    
+
     id = Column(Integer, primary_key = True)
     make_model = Column(String, nullable = False)
     color = Column(String, nullable = False)
