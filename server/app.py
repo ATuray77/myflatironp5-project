@@ -99,21 +99,30 @@ class Logout(Resource):
 def index():
     return '<h1>Project Server</h1>'
 
-@app.route('/cars', methods=['GET'])
-def cars():
-    if request.method == 'GET':
-        cars = Car.query.all()
+# @app.route('/cars', methods=['GET'])
+# def cars():
+#     if request.method == 'GET':
+#         cars = Car.query.all()
 
-        return make_response(
-            jsonify([cars.to_dict() for car in cars]),
+#         return make_response(
+#             jsonify([cars.to_dict() for car in cars]),
+#             200,
+#         )
+
+#     return make_response(
+#         jsonify({"text": "Method Not Allowed"}),
+#         405,
+#     ) 
+class Cars(Resource):
+    def get(self):
+        car_list = [c.to_dict() for c in Car.query.all()]
+        response = make_response(
+            car_list,
             200,
         )
+        return response
 
-    return make_response(
-        jsonify({"text": "Method Not Allowed"}),
-        405,
-    ) 
-
+api.add_resource(Cars, "/cars")
 
 api.add_resource(ClearSession, '/clear', endpoint='clear')
 api.add_resource(CheckSession, '/check_session', endpoint='check_session')
