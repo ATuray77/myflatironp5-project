@@ -17,6 +17,7 @@ class Owner(db.Model, SerializerMixin):
     username = Column(String, unique=True, nullable=False )
     phone= Column(String, nullable = False)
     email= Column(String, unique=True)
+    _password_hash = db.Column(db.String, nullable = False)
 
     cars = relationship("Car", backref="owner") # relationship
 
