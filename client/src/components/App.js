@@ -3,6 +3,12 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [songs, setSongs] = useState([]);
+
+
+
+
+
 
   useEffect(() => {
     fetch("/cars")
