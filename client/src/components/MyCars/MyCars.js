@@ -7,6 +7,9 @@ function MyCars({ cars, id,  onDeleteCar}) {
     
   return (
     <li className="production-card" id={id}>
+      <Link to={`/cars/${id}`} >   
+      
+      </Link>
 
    
     </li>
