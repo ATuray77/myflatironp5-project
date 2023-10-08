@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import "./styles.css"
 
 
-function MyCars({ cars, onDeleteCar}) {
+function MyCars({ cars, id,  onDeleteCar}) {
     
   return (
-    <li>
-      
+    <li className="production-card" id={id}>
+
    
     </li>
   )
