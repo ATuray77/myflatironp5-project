@@ -70,7 +70,7 @@ function App() {
           <CarForm onFormSubmitted={handleOnFormSubmitted} />
         </Route>
         <Route exact path="/">
-          <MyCars cars={cars} setCars={setCars} id={cars.id} onDeleteCar={handleDeleteCar} />
+          <MyCars cars={cars} setCars={setCars} user={user} id={cars.id} onDeleteCar={handleDeleteCar} />
         </Route>
       </Switch>
       ) : (

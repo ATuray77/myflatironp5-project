@@ -39,7 +39,7 @@ function NavBar({ user, setUser }) {
           <button onClick={handleLogoutClick} >Logout</button>
           </p>
         <NavLink to="/cars" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
-          MY CARS
+          CARS
         </NavLink>
 
         <NavLink to="/form" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
