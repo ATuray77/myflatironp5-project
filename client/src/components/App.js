@@ -6,7 +6,7 @@ import Home from "./Home";
 import Login from "./Login";
 import SignUp from "./Signup";
 import CarForm from './CarForm';
-import MyCars from './MyCars';
+import MyCars from './MyCars/MyCars';
 import CarsPage from './CarsPage';
 
 
