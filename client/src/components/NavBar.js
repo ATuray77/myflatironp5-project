@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 
 const linkStyles = {
-  display: "inline block",
+  display: "in-line block",
   width: "50px",
   padding: "12px",
   margin: "0px 6px 6px",
@@ -34,8 +34,10 @@ function NavBar({ user, setUser }) {
       <div>
         {user ? (
           <>
-          <button onClick={handleLogoutClick}>Logout</button>
-          <p>Welcome {user.first_name} {user.last_name}</p>
+          {/* <button onClick={handleLogoutClick} style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>Logout</button> */}
+          <p>Welcome {user.first_name} {user.last_name}
+          <button onClick={handleLogoutClick} >Logout</button>
+          </p>
         <NavLink to="/cars" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
           MY CARS
         </NavLink>
