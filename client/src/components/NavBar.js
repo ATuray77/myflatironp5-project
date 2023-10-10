@@ -26,9 +26,9 @@ function NavBar({ user, setUser }) {
   return (
     <>
       <div>
-        <NavLink to="/" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
+        <h1>
           WELCOME TO METRO PARKING GARAGE
-        </NavLink>
+        </h1>
       </div>
 
       <div>
@@ -56,13 +56,15 @@ function NavBar({ user, setUser }) {
         </>
         ) : (
         <>
-        <NavLink to="/signUp" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
+
+        <NavLink to="/signup" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
           SignUp
         </NavLink>
 
         <NavLink to="/login" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
           Login
         </NavLink>
+
         </>
        )}
         

@@ -73,14 +73,16 @@ function App() {
           <MyCars cars={cars} setCars={setCars} user={user} id={cars.id} onDeleteCar={handleDeleteCar} />
         </Route>
       </Switch>
+
       ) : (
+        
       <Switch>
         <Route path="/signup">
-          <SignUp setUser={setUser} />
+          <SignUp setUser={setUser}   />
         </Route>
 
         <Route path="/login">
-          <Login setUser={setUser}/>
+          <Login setUser={setUser}   />
         </Route>
 
         <Route exact path="/">
