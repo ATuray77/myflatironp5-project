@@ -95,9 +95,27 @@ class Logout(Resource):
 #---
 
 
-@app.route('/')
-def index():
-    return '<h1>WELCOME TO METRO PARKNG GARAGE</h1>'
+# @app.route('/')
+# def index():
+#     return '<h1>WELCOME TO METRO PARKNG GARAGE</h1>'
+
+
+class Home(Resource):
+
+    def get(self):
+
+        response_dict = {
+            "message": "Welcome to Metro Parking Garage",
+        }
+
+        response = make_response(
+            response_dict,
+            200
+        )
+
+        return response
+
+api.add_resource(Home, '/')
 
 # @app.route('/cars', methods=['GET'])
 # def cars():
@@ -159,10 +177,14 @@ class Cars(Resource):
             
                 db.session.add(new_car)
                 db.session.commit()
-                return new_car.to_dict(), 201
+                
+                car_dict = new_car.to_dict()
+                response=make_response(jsonify(car_dict), 201
+                )
+                return response
             except IntegrityError:
                 db.session.rollback()
-                return ({"error":"unprocessable entity"}, 422)
+                return {"error":"unprocessable entity"}, 422
 #---End post
 
 
@@ -207,9 +229,9 @@ class CarByID(Resource):
         return response
 
 
-api.add_resource(CarByID, "/cars/<int:id>")
+api.add_resource(CarByID, '/cars/<int:id>')
+api.add_resource(Cars, '/cars')
 
-api.add_resource(Cars, "/cars")
 
 api.add_resource(ClearSession, '/clear', endpoint='clear')
 api.add_resource(CheckSession, '/check_session', endpoint='check_session')

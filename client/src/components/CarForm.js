@@ -3,7 +3,7 @@ import "./Form.css";
 //import { useRef } from "react";
 
 
-function CarForm({ onFormSubmitted }) {
+function CarForm({cars, setCars, onFormSubmitted }) {
 
   const onSubmit = (e) => {
     e.preventDefault();

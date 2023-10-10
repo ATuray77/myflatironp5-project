@@ -66,16 +66,16 @@ function App() {
           {/* <UserHome user={user}/> */}
           <CarsPage cars={cars} setCars={setCars} />
         </Route>
-        <Route path="/form">
-          <CarForm onFormSubmitted={handleOnFormSubmitted} />
+        <Route path="/carForm">
+          <CarForm cars={cars} setCars={setCars} onFormSubmitted={handleOnFormSubmitted} />
         </Route>
-        <Route exact path="/">
+        <Route exact path="/cars/<int:id>">
           <MyCars cars={cars} setCars={setCars} user={user} id={cars.id} onDeleteCar={handleDeleteCar} />
         </Route>
       </Switch>
 
       ) : (
-        
+
       <Switch>
         <Route path="/signup">
           <SignUp setUser={setUser}   />
