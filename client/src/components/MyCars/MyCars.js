@@ -3,7 +3,7 @@ import React from "react";
 import "./styles.css"
 
 
-function MyCars({user, cars,  onDeleteCar}) {
+function MyCars({user, cars, setCars,  onDeleteCar}) {
   const [ id, make_model, color, licence_plate] = cars;
   console.log(make_model)
     
