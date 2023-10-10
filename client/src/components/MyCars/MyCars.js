@@ -5,6 +5,7 @@ import "./styles.css"
 
 function MyCars({user, cars,  onDeleteCar}) {
   const [ id, make_model, color, licence_plate] = cars;
+  console.log(make_model)
     
   return (
     <div>

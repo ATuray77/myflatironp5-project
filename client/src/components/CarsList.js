@@ -12,8 +12,6 @@ function CarsList({ cars, setCars }) {
     e.preventDefault();
 
     setCars(cars.filter((car) => car.make_model.toLowerCase().includes(searchTerm)));
-    // const filteredSongs = songs.filter(song =>
-    //   song.Title.toLowerCase().includes(searchTerm))
   };
 
   const renderCars = Object.keys(cars).map((carID) => (
