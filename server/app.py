@@ -115,7 +115,7 @@ class Home(Resource):
 
         return response
 
-api.add_resource(Home, '/')
+# api.add_resource(Home, '/')
 
 # @app.route('/cars', methods=['GET'])
 # def cars():
@@ -172,22 +172,23 @@ class Cars(Resource):
                     make_model = json['make_model'],
                     color = json['color'],
                     licence_plate = json['licence_plate'],
-                    user_id = session['user_id'],
+                    # user_id = session['user_id'],
                     )
             
                 db.session.add(new_car)
                 db.session.commit()
                 
-                car_dict = new_car.to_dict()
-                response=make_response(jsonify(car_dict), 201
+                response_dict = new_car.to_dict()
+                response = make_response(
+                    response_dict, 
+                    201,
                 )
                 return response
+
             except IntegrityError:
                 db.session.rollback()
                 return {"error":"unprocessable entity"}, 422
 #---End post
-
-
 
 class CarByID(Resource):
     def get(self, id):
@@ -231,6 +232,7 @@ class CarByID(Resource):
 
 api.add_resource(CarByID, '/cars/<int:id>')
 api.add_resource(Cars, '/cars')
+api.add_resource(Home, '/')
 
 
 api.add_resource(ClearSession, '/clear', endpoint='clear')

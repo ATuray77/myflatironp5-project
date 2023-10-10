@@ -3,7 +3,7 @@ import "./Form.css";
 //import { useRef } from "react";
 
 
-function CarForm({cars, setCars, onFormSubmitted }) {
+function CarForm({ onFormSubmitted }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -27,8 +27,8 @@ function CarForm({cars, setCars, onFormSubmitted }) {
     <h3>Please fill in your car information</h3>
       <form onSubmit={onSubmit} className="form">
         <label>
-          Makd and Model
-          <input type="text" name="Make_model" />
+          Make and Model
+          <input type="text" name="make_model" />
         </label>
         <label>
           Color
