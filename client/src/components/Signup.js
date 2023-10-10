@@ -4,6 +4,7 @@ function SignUp({ setUser }) {
   const [first_name, setFirst_name] = useState("");
   const [last_name, setLast_name] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -18,8 +19,9 @@ function SignUp({ setUser }) {
       body: JSON.stringify({
         first_name,
         last_name,
-        email,
         username,
+        email,
+        phone,
         password,
         password_confirmation: passwordConfirmation,
       }),
@@ -50,6 +52,7 @@ function SignUp({ setUser }) {
           value={last_name}
           onChange={(e) => setLast_name(e.target.value)}
         />
+
         <label htmlFor="email">Email</label>
         <input
           type="text"
@@ -58,6 +61,17 @@ function SignUp({ setUser }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        
+        <label htmlFor="phone">Phone</label>
+        <input
+          type="text"
+          id="phone"
+          autoComplete="off"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+
+
         <label htmlFor="username">Username</label>
         <input
           type="text"

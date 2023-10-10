@@ -9,7 +9,7 @@ from flask_restful import Resource
 # Local imports
 from config import app, db, api
 # Add your model imports
-from models import Owner, Car, User
+from models import User, Car
 
 
 # Views go here!
@@ -29,8 +29,10 @@ class Signup(Resource):
 
         first_name = data.get('first_name')
         last_name = data.get('last_name')
-        email = data.get('email')
         username = data.get('username')
+        email = data.get('email')
+        phone = data.get('phone')
+        
         password = data.get('password')
         
 
@@ -46,7 +48,7 @@ class Signup(Resource):
             last_name=last_name,
             username=username,
             email=email,
-           
+            phone=phone
         )
         user.password_hash = password
 
@@ -105,7 +107,7 @@ class Home(Resource):
     def get(self):
 
         response_dict = {
-            "message": "Welcome to Metro Parking Garage",
+            "message": "The safest parking garage in downtown",
         }
 
         response = make_response(
@@ -115,22 +117,6 @@ class Home(Resource):
 
         return response
 
-# api.add_resource(Home, '/')
-
-# @app.route('/cars', methods=['GET'])
-# def cars():
-#     if request.method == 'GET':
-#         cars = Car.query.all()
-
-#         return make_response(
-#             jsonify([cars.to_dict() for car in cars]),
-#             200,
-#         )
-
-#     return make_response(
-#         jsonify({"text": "Method Not Allowed"}),
-#         405,
-#     ) 
 
 
 class Cars(Resource):
@@ -142,26 +128,7 @@ class Cars(Resource):
         )
         return response
 
-#---post
-    # def post(self):
-    #     form_json = request.get_json()
-    #     new_car = Car(
-    #         make_model=form_json["make_model"],
-    #         color=form_json["color"],
-    #         licence_plate=form_json["licence_plate"]
-           
-    #     )
 
-    #     db.session.add(new_car)
-    #     db.session.commit()
-
-    #     response_dict = new_car.to_dict()
-
-    #     response = make_response(
-    #         response_dict,
-    #         201,
-    #     )
-    #     return response
     def post(self):
         json = request.get_json()
         if not session.get('user_id'):
@@ -172,7 +139,7 @@ class Cars(Resource):
                     make_model = json['make_model'],
                     color = json['color'],
                     licence_plate = json['licence_plate'],
-                    # user_id = session['user_id'],
+                    user_id = session['user_id'],
                     )
             
                 db.session.add(new_car)

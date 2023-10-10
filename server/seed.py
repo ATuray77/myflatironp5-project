@@ -9,7 +9,7 @@ from faker import Faker
 # Local imports
 
 from app import app
-from models import db, Car, Owner
+from models import db, Car, User
 
 if __name__ == '__main__':
     fake = Faker()
@@ -18,38 +18,11 @@ if __name__ == '__main__':
     with app.app_context():
         print("Starting seed...")
         #Seed code goes here!
-        Owner.query.delete()
+        User.query.delete()
         Car.query.delete()
 
-        print("Creating Owner...")
-        # owner_list = []
-        # for n in range(10):
-
-        #     first_name=fake.first_name()
-        #     last_name=fake.last_name()
-        #     email = fake.ascii_email()
-        #     username = f"{first_name}_{last_name}"
-        #     phone = fake.phone_number()
-
-
-        #     owner = Owner(
-        #         first_name=first_name, 
-        #         last_name=last_name, 
-        #         email = email, 
-        #         username = username, 
-        #         phone=phone, 
-        #     )
-        #     owner.password_hash = owner
-            
-        #     owner_list.append(owner)
-        # db.session.add_all(owner_list)
-        # db.session.commit()
-        # #owner_list.append(owner)
-        # print(owner_list)
-
-
-
-        # print("Creating Car...")
+        print("Creating Users...")
+       
         makes_models = [
             "Toyota_Camry", 
             "Ford_Mustang", 
@@ -67,24 +40,7 @@ if __name__ == '__main__':
             "Dodge_Charger"
             "Dodge_Challenger"
             ]
-        # colors = ["white", "red", "green", "blue", "yellow", "purple", "brown", "pink", "grey", "black"]
-        # # print(makes_models)
-        # # print(colors)
-        # cars_list = []
-        # for i in range(10):
-        #     car = Car(
-        #         make_model = random.choice(makes_models),
-        #         color = random.choice(colors),
-        #         license_plate = fake.license_plate()
-        #     )
-
-        #     owner = random.choice(owner_list)
-        #     owner.cars.append(car)
-        #     cars_list.append(car)
-        #     print(cars_list)
-
-        # db.session.add_all(cars_list)
-        # db.session.commit()
+      
 
 #----
 
@@ -93,15 +49,15 @@ if __name__ == '__main__':
         # generate 10 owners
         for _ in range(10):
             
-            owner = Owner(
+            user = User(
                 first_name=fake.first_name(),
                 last_name=fake.last_name(),
                 username = fake.user_name(),
                 email=fake.email(),
                 phone=fake.phone_number(),
-                #_password_hash=fake.sha256()
+                _password_hash=fake.sha256()
             )
-            db.session.add(owner)
+            db.session.add(user)
 
         # commit the owners to the database so they get primary keys
         db.session.commit()
@@ -109,11 +65,10 @@ if __name__ == '__main__':
         # generate 30 cars
         for _ in range(30):
             car = Car(
-                #make_model=fake.company(),
                 make_model = random.choice(makes_models),
                 color=fake.safe_color_name(),
                 licence_plate=fake.license_plate(),
-                owner_id=random.choice(Owner.query.all()).id
+                user_id=random.choice(User.query.all()).id
             )
             db.session.add(car)
 
