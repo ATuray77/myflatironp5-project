@@ -13,7 +13,7 @@ function UsersList({ users, setUsers}) {
 
     const renderUsers = Object.keys(users).map((userID) => (
         <li key={userID}>
-            <Link to={'/users/${userID}'}>{users[userID].username}</Link>
+            <Link to={`/users/${userID}`}>{users[userID].username}</Link>
         </li>
     ));
 
