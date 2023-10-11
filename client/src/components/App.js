@@ -8,6 +8,7 @@ import SignUp from "./Signup";
 import CarForm from './CarForm';
 import MyCars from './MyCars/MyCars';
 import CarsPage from './CarsPage';
+import UsersPage from "./UsersPage";
 
 
 function App() {
@@ -71,6 +72,10 @@ function App() {
         </Route>
         <Route exact path="/allmyCars>">
           <MyCars cars={cars} setCars={setCars} user={user} setUser={setUser} onDeleteCar={handleDeleteCar} />
+        </Route>
+
+        <Route exact path="/allmyCars>">
+          <UsersPage user={user} setUser={setUser} />
         </Route>
       </Switch>
 

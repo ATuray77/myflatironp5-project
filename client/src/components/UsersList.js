@@ -1,6 +1,11 @@
-import React from 'react'
+import { React, useState} from 'react'
 
-function UsersList() {
+
+function UsersList({ user, setUser}) {
+    const [searchTerm, setSearchTerm] = useState("");
+
+
+    
   return (
     <div>
       
