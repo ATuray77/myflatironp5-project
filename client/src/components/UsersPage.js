@@ -12,7 +12,7 @@ function UsersPage({ users, setUsers}) {
         <Route exact path={match.url}></Route>
       
     </div>
-  )
+  );
 }
 
 export default UsersPage

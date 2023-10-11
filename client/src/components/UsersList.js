@@ -27,7 +27,7 @@ function UsersList({ users, setUsers}) {
       </form>
       <ol>{renderUsers}</ol>
     </div>
-  )
+  );
 }
 
 export default UsersList

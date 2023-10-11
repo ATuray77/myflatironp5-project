@@ -74,7 +74,7 @@ function App() {
           <MyCars cars={cars} setCars={setCars} user={user} setUser={setUser} onDeleteCar={handleDeleteCar} />
         </Route>
 
-        <Route exact path="/allmyCars>">
+        <Route path="/users>">
           <UsersPage users={user} setUsers={setUser} />
         </Route>
       </Switch>
