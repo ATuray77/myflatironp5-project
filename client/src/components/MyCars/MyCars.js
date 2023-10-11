@@ -4,7 +4,8 @@ import "./MyCars.css"
 
 
 
-function MyCars({user, cars, setCars,  onDeleteCar}) {
+function MyCars({user, setUser, cars, setCars,  onDeleteCar}) {
+  const myparams = useParams();
   const [ id, make_model, color, licence_plate] = cars;
   console.log(make_model)
     

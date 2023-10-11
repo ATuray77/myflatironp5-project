@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-function CarShow({ cars }) {
+function CarShow({cars }) {
   // console.log(cars)
 
   const params = useParams(); //this function pulls out the id params
