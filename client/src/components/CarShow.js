@@ -5,6 +5,7 @@ function CarShow({ cars }) {
   // console.log(cars)
 
   const params = useParams(); //this function pulls out the id params
+  console.log(params)
   //console.log(params)
   
 

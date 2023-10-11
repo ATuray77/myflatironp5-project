@@ -50,9 +50,6 @@ function NavBar({ user, setUser }) {
           MyCars
         </NavLink>
 
-        {/* <NavLink to="/UserHome" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
-          User Home
-        </NavLink> */}
         </>
         ) : (
         <>

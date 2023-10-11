@@ -203,7 +203,7 @@ class AllmyCars(Resource):
         if user_id is None:
             return {"error": "No user logged in"}
         
-        cars = Car.query.filter_by(user_id=user.id).all()
+        cars = Car.query.filter_by(id=user.id).all()
         car_data = [
             {
                 "make_model": car.make_model,
@@ -211,14 +211,18 @@ class AllmyCars(Resource):
                 "license_plate": car.license_plate
             } for car in cars
         ]
-        return {"cars": car_data}
+
+        cars_dict = car_data.to_dict()
+        response = make_response(cars_dict, 200)
+        
+        return response
 
 api.add_resource(AllmyCars, '/allmyCars/<int:id>')
 
 #---end all cars belonging to a user
 
 
-api.add_resource(CarByID, '/cars/user_id/<int:id>')
+api.add_resource(CarByID, '/cars/<int:id>')
 api.add_resource(Cars, '/cars')
 api.add_resource(Home, '/')
 
