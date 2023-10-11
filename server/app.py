@@ -196,29 +196,29 @@ class CarByID(Resource):
 
 
 #---all cars belonging to a user
-# class AllmyCars(Resource):
-#     def get(self, id):
+class AllmyCars(Resource):
+    def get(self, id):
 
-#         user_id = session.get('user_id')
-#         if user_id is None:
-#             return {"error": "No user logged in"}
+        user_id = session.get('user_id')
+        if user_id is None:
+            return {"error": "No user logged in"}
         
-#         cars = Car.query.filter_by(owner_id=user_id).all()
-#         car_data = [
-#             {
-#                 "make_model": car.make_model,
-#                 "color": car.color,
-#                 "license_plate": car.license_plate
-#             } for car in cars
-#         ]
-#         return {"cars": car_data}
+        cars = Car.query.filter_by(user_id=user.id).all()
+        car_data = [
+            {
+                "make_model": car.make_model,
+                "color": car.color,
+                "license_plate": car.license_plate
+            } for car in cars
+        ]
+        return {"cars": car_data}
 
-# api.add_resource(AllmyCars, '/allmyCars/<int:id>')
+api.add_resource(AllmyCars, '/allmyCars/<int:id>')
 
 #---end all cars belonging to a user
 
 
-api.add_resource(CarByID, '/cars/<int:id>')
+api.add_resource(CarByID, '/cars/user_id/<int:id>')
 api.add_resource(Cars, '/cars')
 api.add_resource(Home, '/')
 
