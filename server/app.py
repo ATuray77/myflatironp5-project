@@ -174,8 +174,6 @@ class CarByID(Resource):
         for attr in request.form:
             setattr(car, attr, request.form[attr])
 
-        # production.ongoing = bool(request.form["ongoing"])
-        # production.budget = int(request.form["budget"])
 
         db.session.add(car)
         db.session.commit()
@@ -195,6 +193,29 @@ class CarByID(Resource):
         response = make_response("", 204)
 
         return response
+
+
+#---all cars belonging to a user
+# class AllmyCars(Resource):
+#     def get(self, id):
+
+#         user_id = session.get('user_id')
+#         if user_id is None:
+#             return {"error": "No user logged in"}
+        
+#         cars = Car.query.filter_by(owner_id=user_id).all()
+#         car_data = [
+#             {
+#                 "make_model": car.make_model,
+#                 "color": car.color,
+#                 "license_plate": car.license_plate
+#             } for car in cars
+#         ]
+#         return {"cars": car_data}
+
+# api.add_resource(AllmyCars, '/allmyCars/<int:id>')
+
+#---end all cars belonging to a user
 
 
 api.add_resource(CarByID, '/cars/<int:id>')

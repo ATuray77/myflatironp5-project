@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
-import "./styles.css"
+import "./MyCars.css"
 
 
 function MyCars({user, cars, setCars,  onDeleteCar}) {
@@ -11,7 +11,7 @@ function MyCars({user, cars, setCars,  onDeleteCar}) {
     <div>
       {user ? (
     <li className="production-card" id={id}>
-      <NavLink to={`/cars/${id}`} > 
+      <NavLink to={`/allmyCars/${user.id}`} > 
         <div>
           <h2>{make_model}</h2>
           <p>{color}</p>

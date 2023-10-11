@@ -8,7 +8,7 @@ function CarForm({ onFormSubmitted }) {
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
-    console.log(formData);
+    //console.log(formData);
 
     fetch("/cars", {
       method: "POST",
