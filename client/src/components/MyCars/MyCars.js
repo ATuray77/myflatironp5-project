@@ -1,33 +1,39 @@
-import { NavLink, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import React from "react";
-import "./MyCars.css"
+//import "./MyCars.css"
 
 
 
-function MyCars({user, setUser, cars, setCars,  onDeleteCar}) {
+function MyCars({ users }) {
+
   const myparams = useParams();
-  const [ id, make_model, color, licence_plate] = cars;
-  console.log(make_model)
+  
     
   return (
     <div>
-      {user ? (
-    <li className="production-card" id={id}>
-      {/* <NavLink to={`/allmyCars/${user.id}`} >  */}
-        <div>
-          <h2>{make_model}</h2>
-          <p>{color}</p>
-          <p>{licence_plate}</p>
-        </div>  
-      {/* </NavLink> */}
-      </li>
-      ) : (
-        <p>NOT AUTHORIZED</p>
-
-      )}
-    
+      <h3>first_name: {users[myparams.userID].first_name}</h3>
+      <h4>last_name: {users[myparams.userID].last_name}</h4>
+      <h5>email: {users[myparams.carID].email}</h5>
+      <p>{users[myparams.userID].username}</p>
     </div>
-  )}
+  
+  );
+}
 
+
+  // {user ? (
+  //   <li className="production-card" id={id}>
+  //     {/* <NavLink to={`/allmyCars/${user.id}`} >  */}
+  //       <div>
+  //         <h2>{make_model}</h2>
+  //         <p>{color}</p>
+  //         <p>{licence_plate}</p>
+  //       </div>  
+  //     {/* </NavLink> */}
+  //     </li>
+  //     ) : (
+  //       <p>NOT AUTHORIZED</p>
+
+  //     )}
 
 export default MyCars
