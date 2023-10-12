@@ -1,8 +1,8 @@
-"""re-creating users and cars tables
+"""recreating tables
 
-Revision ID: 88bbcfe57d8a
+Revision ID: 429801b84e25
 Revises: 
-Create Date: 2023-10-10 09:42:20.181613
+Create Date: 2023-10-11 20:08:11.404880
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '88bbcfe57d8a'
+revision = '429801b84e25'
 down_revision = None
 branch_labels = None
 depends_on = None

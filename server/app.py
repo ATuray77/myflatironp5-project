@@ -221,6 +221,59 @@ api.add_resource(AllmyCars, '/allmyCars/<int:id>')
 
 #---end all cars belonging to a user
 
+#---start of all users route
+class Users(Resource):
+    def get(self):
+        user_list = [u.to_dict() for u in user.query.all()]
+        response = make_response(
+            user_list,
+            200,
+        )
+        return response
+api.add_resource(Users, '/users')
+#---end of all users route
+
+#---start users resources byid, patch and delete
+class UserByID(Resource):
+    def get(self, id):
+        user = User.query.filter_by(id=id).first()
+        if not user:
+            return {"error": "user not found"}, 404
+        user_dict = user.to_dict()
+        response = make_response(user_dict, 200)
+        return response
+
+    def patch(self, id):
+        user = User.query.filter_by(id=id).first()
+        if not user:
+            return {"error": "User not found"}, 404
+
+        for attr in request.form:
+            setattr(user, attr, request.form[attr])
+
+
+        db.session.add(user)
+        db.session.commit()
+
+        user_dict = user.to_dict()
+
+        response = make_response(user_dict, 200)
+        return response
+
+    def delete(self, id):
+        user = User.query.filter_by(id=id).first()
+        if not user:
+            return {"error": "User not found"}, 404
+        db.session.delete(user)
+        db.session.commit()
+
+        response = make_response("", 204)
+
+        return response
+api.add_resource(UserByID, '/users/<int:id>')
+#---end users resources byid, patch and delete
+
+
 
 api.add_resource(CarByID, '/cars/<int:id>')
 api.add_resource(Cars, '/cars')
