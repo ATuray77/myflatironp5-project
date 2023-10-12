@@ -75,7 +75,7 @@ function App() {
         </Route> */}
 
         <Route path="/users">
-          <UsersPage users={user} setUsers={setUser} />
+          <UsersPage user={user} setUser={setUser} />
         </Route>
       </Switch>
 

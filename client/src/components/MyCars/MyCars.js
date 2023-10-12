@@ -1,10 +1,11 @@
-import {useParams } from "react-router-dom";
-import React from "react";
+import {useParams } from "react-router-dom"
+import React from "react"
 //import "./MyCars.css"
 
 
 
 function MyCars({ users }) {
+  console.log(users)
 
   const myparams = useParams();
   
