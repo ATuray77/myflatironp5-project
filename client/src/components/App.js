@@ -6,7 +6,7 @@ import Home from "./Home";
 import Login from "./Login";
 import SignUp from "./Signup";
 import CarForm from './CarForm';
-import MyCars from './MyCars/MyCars';
+//import MyCars from './MyCars/MyCars';
 import CarsPage from './CarsPage';
 import UsersPage from "./UsersPage";
 
@@ -32,10 +32,10 @@ function App() {
   }
 
    //handles delete
-   function handleDeleteCar(id) {
-    const updatedCars = cars.filter((car) => car.id !== id);
-    setCars(updatedCars);
-  }
+  //  function handleDeleteCar(id) {
+  //   const updatedCars = cars.filter((car) => car.id !== id);
+  //   setCars(updatedCars);
+  // }
 
 
   useEffect(() => {
@@ -70,11 +70,11 @@ function App() {
         <Route path="/carForm">
           <CarForm cars={cars} setCars={setCars} onFormSubmitted={handleOnFormSubmitted} />
         </Route>
-        <Route exact path="/allmyCars>">
+        {/* <Route exact path="/allmyCars>">
           <MyCars cars={cars} setCars={setCars} user={user} setUser={setUser} onDeleteCar={handleDeleteCar} />
-        </Route>
+        </Route> */}
 
-        <Route path="/users>">
+        <Route path="/users">
           <UsersPage users={user} setUsers={setUser} />
         </Route>
       </Switch>
