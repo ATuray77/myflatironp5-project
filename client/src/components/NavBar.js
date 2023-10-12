@@ -46,9 +46,9 @@ function NavBar({ user, setUser }) {
           NEW CAR FORM
         </NavLink>
 
-        <NavLink to="/mycars" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
+        {/* <NavLink to="/mycars" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
           MyCars
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/users" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
           Users 
         </NavLink>

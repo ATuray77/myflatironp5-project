@@ -14,6 +14,7 @@ function MyCars({ users }) {
       <h3>first_name: {users[myparams.userID].first_name}</h3>
       <h4>last_name: {users[myparams.userID].last_name}</h4>
       <h5>email: {users[myparams.carID].email}</h5>
+      <h5>phone: {users[myparams.carID].phone}</h5>
       <p>{users[myparams.userID].username}</p>
     </div>
   
