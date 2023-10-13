@@ -75,7 +75,7 @@ function App() {
         </Route> */}
 
         <Route path="/users">
-          <UsersPage user={user} setUser={setUser} />
+          <UsersPage user={user} setUser={setUser} cars={cars} setCars={setCars}/>
         </Route>
       </Switch>
 

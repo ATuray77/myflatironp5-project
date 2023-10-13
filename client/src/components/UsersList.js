@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 
 
 
-function UsersList({ cars, users, setUsers}) {
+function UsersList({ cars, setCars, users, setUsers}) {
     console.log(users)
     //const [first_name, last_name, email, phone, car] = users
+    const [make_model, color, license_plate] = cars
     // const [searchTerm, setSearchTerm] = useState("");
 
     // const onFormSubmission = (e) => {
@@ -20,9 +21,9 @@ function UsersList({ cars, users, setUsers}) {
     //     </li> 
     // ));
 //---END OF OLD CODE
-    const renderUsers = Object.keys(users).map((user_id) => (
+    const renderUsers = Object.keys(cars).map((user_id) => (
         <div key={user_id}> 
-            <li key={user_id}> cars: {users[cars]}</li>
+            <li key={user_id}> cars: {cars[make_model]}</li>
 
         </div>
         ));
