@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-function UsersList({ users, setUsers}) {
+function UsersList({ cars, users, setUsers}) {
     console.log(users)
     //const [first_name, last_name, email, phone, car] = users
     // const [searchTerm, setSearchTerm] = useState("");
@@ -13,18 +13,26 @@ function UsersList({ users, setUsers}) {
     
     //     setUsers(users.filter((user) => user.username.toLowerCase().includes(searchTerm)));
     //   };
-
+//---START OF OLD CODE
+    //const renderUsers = Object.keys(users).map((userID) => (
+    //     <li key={userID}>
+    //         <Link to={`/users/${userID}`}>{users[userID].cars}</Link>
+    //     </li> 
+    // ));
+//---END OF OLD CODE
     const renderUsers = Object.keys(users).map((userID) => (
-        <li key={userID}>
-            <Link to={`/users/${userID}`}>{users[userID].username}</Link>
-        </li> 
-    ));
-    console.log(renderUsers)
+        <div key={userID}> 
+            <li key={userID}> cars: {users[cars]}</li>
+
+        </div>
+        ));
+
     return (
         <>
         <ol>{renderUsers}</ol>
         </>
     )     
+
 }
 
 export default UsersList
