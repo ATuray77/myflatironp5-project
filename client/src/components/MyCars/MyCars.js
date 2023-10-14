@@ -8,14 +8,17 @@ function MyCars({ user }) {
   console.log(user.cars)
 
   //const myparams = useParams();
-  const renderUsersCars = user.cars.map((car) => (
-    <div Car key={car.id}>car={car}</div>
-  ))
+  // const renderUsersCars = user.cars.map((car) => (
+  //   <li Car key={car.id}>car={car}</li>
+  // ))
   
   
   return (
     <div>
-      {renderUsersCars}
+      <p>Make and Model: {user.cars.make_model}</p>
+      <p>Color: {user.cars.colors}</p>
+      <p>Licence plate: {user.cars.licence_plate}</p>
+      
     </div>
   
   );

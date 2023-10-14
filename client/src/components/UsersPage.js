@@ -1,10 +1,9 @@
 import React from 'react'
 import { Route, useRouteMatch } from 'react-router-dom'
-import UsersList from './UsersList'
+//import UsersList from './UsersList'
 import MyCars from './MyCars/MyCars';
 
-function UsersPage({ user, setUser }) {
-    console.log(user)
+function UsersPage({ cars, user, setUser }) {
     //const match = useRouteMatch();
 
     if (!user.cars) {
@@ -13,7 +12,9 @@ function UsersPage({ user, setUser }) {
     
   return (
     <div>
-        <h3>Choose a User to see their information</h3>
+        {cars.map((car) =>(
+            <car key={car.id} car={car}/>
+        ))}
        
         <MyCars user={user} cars={user.cars} />
       
