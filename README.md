@@ -48,8 +48,10 @@ There are also routes to make updates or delete a car from the database.
 The frontend/client-side presents a programmatically intuitive navigation to the user.
 1. Car Form tab:
 This enables users to submit information about a car they want to park in the garage
-2. User's cars tab:
-This gives users an interactive view of all their parked cars with detailed information
+2. My cars tab:
+This gives users an interactive view of all their parked cars with detailed information.
+Users/Owners can view their cars when they are logged. 
+Other users/owners are not able to tell which cars belong to which owner. 
         
 
 Happy coding!
