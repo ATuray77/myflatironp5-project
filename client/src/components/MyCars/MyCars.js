@@ -4,23 +4,25 @@ import React from "react"
 
 
 
-function MyCars({ users }) {
-  console.log(users)
+function MyCars({ user }) {
+  console.log(user.cars)
 
-  const myparams = useParams();
+  //const myparams = useParams();
+  const renderUsersCars = user.cars.map((car) => (
+    <div Car key={car.id}>car={car}</div>
+  ))
   
-    
+  
   return (
     <div>
-      <h3>first_name: {users[myparams.userID].first_name}</h3>
-      <h4>last_name: {users[myparams.userID].last_name}</h4>
-      <h5>email: {users[myparams.carID].email}</h5>
-      <h5>phone: {users[myparams.carID].phone}</h5>
-      <p>{users[myparams.userID].username}</p>
+      {renderUsersCars}
     </div>
   
   );
 }
+
+
+
 
 
   // {user ? (

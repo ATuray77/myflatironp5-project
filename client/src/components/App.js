@@ -54,13 +54,6 @@ function App() {
     <>
     <NavBar user={user} setUser={setUser}/> 
     
-    {/* <div className={"App " + (isDarkMode ? "dark" : "light")}>
-    <header>
-      <h2> My Song Library</h2>
-      <button onClick={handleDarkMode}>
-        {isDarkMode ? "Dark" : "LIght"} Mode
-      </button>
-    </header> */}
       {user ? (
       <Switch>
         <Route path="/cars">
