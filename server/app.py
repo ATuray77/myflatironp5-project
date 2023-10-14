@@ -190,7 +190,10 @@ class CarByID(Resource):
         db.session.delete(car)
         db.session.commit()
 
-        response = make_response("", 204)
+        response_dict = {"message": "record successfully deleted"}
+        response = make_response(
+            response_dict,
+             200)
 
         return response
 

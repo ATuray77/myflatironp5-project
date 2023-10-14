@@ -20,9 +20,11 @@ function MyCars({ cars, user, setUser }) {
       
       <h3 style={{color: 'blue'}}>{car.make_model}</h3>
 
-      <b style={{color: 'brown'}}>Color: {car.color}</b>   
+      <b style={{color: 'brown'}}>Color: {car.color}</b> -   
 
       <b style={{color: 'green'}}>License PLate:</b> {car.licence_plate}
+
+      <button > Delete </button>
       
       </li>
   ))

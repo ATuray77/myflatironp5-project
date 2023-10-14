@@ -26,7 +26,7 @@ function NavBar({ user, setUser }) {
   return (
     <>
       <div>
-        <h1>
+        <h1 style={{color: 'yellow'}}>
           WELCOME TO METRO PARKING GARAGE
         </h1>
       </div>
@@ -35,9 +35,9 @@ function NavBar({ user, setUser }) {
         {user ? (
           <>
           {/* <button onClick={handleLogoutClick} style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>Logout</button> */}
-          <p>Welcome {user.first_name} {user.last_name}
-          <button onClick={handleLogoutClick} >Logout</button>
-          </p>
+          <h2>Welcome {user.first_name} {user.last_name}
+          <button onClick={handleLogoutClick} style={{color: 'red' }}>Logout</button>
+          </h2>
         <NavLink to="/cars" exact style={linkStyles} activeStyle={{ background: "DarkOliveGreen" }}>
           CARS
         </NavLink>
