@@ -11,9 +11,11 @@ function MyCars({ cars, user }) {
   const renderUsersCars = cars.map((car) => (
     <li Car key={car.id}>
       
-      {car.make_model},
-      <bold>Color:</bold> {car.color},
-      License PLate: {car.licence_plate}
+      <h3>{car.make_model}</h3>
+
+      <strong>Color:</strong> {car.color} - 
+
+      <strong>License PLate:</strong> {car.licence_plate}
       
       </li>
   ))
