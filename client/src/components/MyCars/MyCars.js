@@ -13,9 +13,9 @@ function MyCars({ cars, user }) {
       
       <h3 style={{color: 'blue'}}>{car.make_model}</h3>
 
-      <b>Color:</b> {car.color} - 
+      <b style={{color: 'brown'}}>Color:</b> {car.color} - 
 
-      <b>License PLate:</b> {car.licence_plate}
+      <b style={{color: 'green'}}>License PLate:</b> {car.licence_plate}
       
       </ol>
   ))
