@@ -28,6 +28,7 @@ Prerequisites
     git clone https://github.com/ATuray77/myflatironp5-project.git
 2. Install NPM packages:
     npm install
+    npm start
 
 ## Features
 This project features a backend server built with Flask, a database built with SQLalchemy 

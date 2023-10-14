@@ -46,8 +46,6 @@ function MyCars({ cars, user, setUser }) {
         <div>not logged in </div>
       </switch>
       )}
-      
-
 
     </>
   
