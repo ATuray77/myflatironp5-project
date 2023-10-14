@@ -4,21 +4,29 @@ import React from "react"
 
 
 
-function MyCars({ user }) {
+function MyCars({ cars, user }) {
   console.log(user.cars)
 
   //const myparams = useParams();
-  // const renderUsersCars = user.cars.map((car) => (
-  //   <li Car key={car.id}>car={car}</li>
-  // ))
+  const renderUsersCars = cars.map((car) => (
+    <li Car key={car.id}>
+      
+      {car.make_model},
+      <bold>Color:</bold> {car.color},
+      License PLate: {car.licence_plate}
+      
+      </li>
+  ))
   
   
   return (
     <div>
-      <p>Make and Model: {user.cars.make_model}</p>
-      <p>Color: {user.cars.colors}</p>
-      <p>Licence plate: {user.cars.licence_plate}</p>
-      
+      <h2>All my parked cars</h2>
+
+
+      {renderUsersCars}
+
+
     </div>
   
   );
