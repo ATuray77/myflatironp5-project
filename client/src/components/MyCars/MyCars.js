@@ -9,15 +9,15 @@ function MyCars({ cars, user }) {
 
   //const myparams = useParams();
   const renderUsersCars = cars.map((car) => (
-    <ol Car key={car.id}>
+    <li Car key={car.id}>
       
       <h3 style={{color: 'blue'}}>{car.make_model}</h3>
 
-      <b style={{color: 'brown'}}>Color:</b> {car.color} - 
+      <b style={{color: 'brown'}}>Color: {car.color}</b>   
 
       <b style={{color: 'green'}}>License PLate:</b> {car.licence_plate}
       
-      </ol>
+      </li>
   ))
   
   
