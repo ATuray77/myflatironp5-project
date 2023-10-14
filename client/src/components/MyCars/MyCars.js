@@ -1,4 +1,4 @@
-import {useParams } from "react-router-dom"
+
 import React from "react"
 //import "./MyCars.css"
 
@@ -7,7 +7,7 @@ import React from "react"
 function MyCars({ cars, user }) {
   console.log(user.cars)
 
-  //const myparams = useParams();
+ 
   const renderUsersCars = cars.map((car) => (
     <li Car key={car.id}>
       
