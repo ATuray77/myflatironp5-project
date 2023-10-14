@@ -1,11 +1,18 @@
 
 import React from "react"
+//import NavBar from "../NavBar"
 //import "./MyCars.css"
 
 
 
-function MyCars({ cars, user }) {
+function MyCars({ cars, user, setUser }) {
   console.log(user.cars)
+
+  if (!user.cars) {
+    return  <div> Loading...</div>
+  }
+
+  
 
  
   const renderUsersCars = cars.map((car) => (
@@ -22,14 +29,27 @@ function MyCars({ cars, user }) {
   
   
   return (
-    <div>
-      <h2>All my parked cars</h2>
+    <>
+
+      {user ? (
+      <switch>
+        <h2>All my parked cars</h2>
 
 
-      {renderUsersCars}
+        {renderUsersCars}
+      
+      </switch>
+
+        ) : (
+       
+      <switch>
+        <div>not logged in </div>
+      </switch>
+      )}
+      
 
 
-    </div>
+    </>
   
   );
 }
