@@ -186,7 +186,7 @@ class CarByID(Resource):
     def delete(self, id):
         car = Car.query.filter_by(id=id).first()
         if not car:
-            return {"error": "Production not found"}, 404
+            return {"error": "car not found"}, 404
         db.session.delete(car)
         db.session.commit()
 

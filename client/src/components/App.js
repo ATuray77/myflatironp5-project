@@ -32,10 +32,11 @@ function App() {
   }
 
    //handles delete
-  //  function handleDeleteCar(id) {
-  //   const updatedCars = cars.filter((car) => car.id !== id);
-  //   setCars(updatedCars);
-  // }
+   function handleDeleteCar(id) {
+    console.log(id)
+    const updatedCars = cars.filter((car) => car.id !== id);
+    setCars(updatedCars);
+  }
 
 
   useEffect(() => {
@@ -68,7 +69,10 @@ function App() {
         </Route> */}
 
         <Route path="/users">
-          <UsersPage user={user} setUser={setUser} cars={cars} setCars={setCars}/>
+          <UsersPage user={user} setUser={setUser} cars={cars} setCars={setCars} handleDeleteCar={handleDeleteCar}/>
+        </Route>
+        <Route path="/cars">
+          <UsersPage user={user} setUser={setUser} cars={cars} setCars={setCars} handleDeleteCar={handleDeleteCar}/>
         </Route>
       </Switch>
 

@@ -5,18 +5,31 @@ import React from "react"
 
 
 
-function MyCars({ cars, user, setUser }) {
-  console.log(user.cars)
+function MyCars({ cars, user, setUser, handleDeleteCar }) {
+  //console.log(user.cars)
 
-  if (!user.cars) {
-    return  <div> Loading...</div>
-  }
+  const [id] = cars
+  //console.log(id)
+
+
+  const handleDeleteClick = async () => {
+
+    const response = await fetch(`/cars/${id}`, {
+    method: "DELETE",
+  });
+    if (response.ok) {
+      console.log(id)
+      handleDeleteCar(id);
+      
+      alert("Deleted Successfully 🌼")
+    }
+}
 
   
 
  
   const renderUsersCars = cars.map((car) => (
-    <li Car key={car.id}>
+    <li car key={car.id}>
       
       <h3 style={{color: 'blue'}}>{car.make_model}</h3>
 
@@ -24,7 +37,7 @@ function MyCars({ cars, user, setUser }) {
 
       <b style={{color: 'green'}}>License PLate:</b> {car.licence_plate}
 
-      <button > Delete </button>
+      <button onClick={handleDeleteClick}> Delete </button>
       
       </li>
   ))
@@ -34,19 +47,19 @@ function MyCars({ cars, user, setUser }) {
     <>
 
       {user ? (
-      <switch>
+      <div>
         <h2>All my parked cars</h2>
 
 
         {renderUsersCars}
       
-      </switch>
+      </div>
 
         ) : (
        
-      <switch>
+      <div>
         <div>not logged in </div>
-      </switch>
+      </div>
       )}
 
     </>
